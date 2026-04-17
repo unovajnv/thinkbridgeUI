@@ -1,5 +1,0 @@
-{
-  "buildCommand": "dotnet build -c Release",
-  "installCommand": "dotnet restore",
-  "outputDirectory": "bin/Release/net10.0"
-}
