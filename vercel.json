@@ -1,0 +1,10 @@
+{
+  "buildCommand": "dotnet build -c Release",
+  "devCommand": "dotnet run",
+  "outputDirectory": "bin/Release/net10.0/publish",
+  "framework": "dotnet",
+  "env": {
+    "ASPNETCORE_ENVIRONMENT": "Production",
+    "ASPNETCORE_URLS": "http://0.0.0.0:3000"
+  }
+}

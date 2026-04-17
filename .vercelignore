@@ -1,0 +1,16 @@
+# Ignore build artifacts
+bin/
+obj/
+.git/
+.gitignore
+*.user
+*.suo
+.vs/
+.vscode/
+node_modules/
+npm-debug.log
+.DS_Store
+.env
+.env.local
+*.db
+*.sqlite
