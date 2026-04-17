@@ -8,3 +8,10 @@ obj/
 *.user
 *.suo
 appsettings.local.json
+
+# Obsolete files - use Controllers/InvoiceController.cs instead
+APIController.cs
+InvoiceController.cs
+.vercelignore
+VERCEL_DEPLOYMENT.md
+
