@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: thinkbridge-invoice
+    env: dotnet
+    plan: free
+    buildCommand: dotnet build
+    startCommand: dotnet run --no-build --configuration Release
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ASPNETCORE_URLS
+        value: http://0.0.0.0:10000
+
+databases:
+  - name: invoices-db
+    dbName: invoices
+    user: invoices_user
+    plan: free

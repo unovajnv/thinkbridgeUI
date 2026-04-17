@@ -1,0 +1,10 @@
+{
+  "name": "thinkbridge-invoice",
+  "version": "1.0.0",
+  "description": "Invoice Display Application with API",
+  "scripts": {
+    "dev": "dotnet run",
+    "build": "dotnet build",
+    "start": "dotnet run --no-build --configuration Release"
+  }
+}

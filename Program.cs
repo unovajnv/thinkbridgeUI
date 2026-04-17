@@ -18,8 +18,11 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 // Add DbContext
+var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") 
+    ?? "Host=localhost;Database=invoices;Username=postgres;Password=postgres";
+
 builder.Services.AddDbContext<InvoiceContext>(options =>
-    options.UseSqlite("Data Source=invoices.db"));
+    options.UseNpgsql(connectionString));
 
 // Add CORS
 builder.Services.AddCors(options =>
