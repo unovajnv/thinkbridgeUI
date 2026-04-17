@@ -1,28 +1,44 @@
-# Vercel Deployment Configuration
+# Vercel Deployment Configuration for .NET
 
-## Build & Run Commands for Vercel
+## ✅ Build & Run Commands for Vercel
+
+### Install Command
+```bash
+dotnet restore
+```
+Restores NuGet packages (dependencies)
 
 ### Build Command
 ```bash
-dotnet build -c Release
+dotnet build -c Release && dotnet publish -c Release -o out
 ```
+Builds the application and publishes to `out` directory
 
-### Run/Start Command
-```bash
-dotnet run --no-build -c Release --urls http://0.0.0.0:3000
+### Output Directory
 ```
+out
+```
+Vercel will use the published application from this folder
+
+### Start Command (Automatic)
+```bash
+dotnet out/ThinkBridge.dll
+```
+Vercel automatically runs this
 
 ---
 
-## Configuration Files
+## vercel.json Configuration
 
-### 1. Create `vercel.json` (Root Directory)
+Your `vercel.json` is configured as:
+
 ```json
 {
-  "buildCommand": "dotnet build -c Release",
-  "devCommand": "dotnet run",
-  "outputDirectory": "bin/Release/net10.0/publish",
+  "buildCommand": "dotnet build -c Release && dotnet publish -c Release -o out",
+  "installCommand": "dotnet restore",
+  "outputDirectory": "out",
   "framework": "dotnet",
+  "nodeVersion": "18.x",
   "env": {
     "ASPNETCORE_ENVIRONMENT": "Production",
     "ASPNETCORE_URLS": "http://0.0.0.0:3000"
@@ -30,25 +46,23 @@ dotnet run --no-build -c Release --urls http://0.0.0.0:3000
 }
 ```
 
-### 2. Create `.vercelignore` (Root Directory)
-```
-# Ignore build artifacts
-bin/
-obj/
-.git/
-.gitignore
-*.user
-*.suo
-.vs/
-.vscode/
-node_modules/
-npm-debug.log
-.DS_Store
-```
+---
+
+## ⚙️ Vercel Dashboard Settings
+
+When creating your project on Vercel Dashboard, use these settings:
+
+| Field | Value |
+|-------|-------|
+| **Framework** | `.NET` |
+| **Build Command** | `dotnet build -c Release && dotnet publish -c Release -o out` |
+| **Output Directory** | `out` |
+| **Install Command** | `dotnet restore` |
+| **Node Version** | `18.x` |
 
 ---
 
-## Deployment to 2 URLs (Staging & Production)
+## 🚀 Deployment to 2 URLs (Staging & Production)
 
 ### **Option A: Using Vercel CLI**
 
