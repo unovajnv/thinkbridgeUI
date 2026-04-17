@@ -18,8 +18,12 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 // Add DbContext
-var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") 
-    ?? "Host=localhost;Database=invoices;Username=postgres;Password=postgres";
+var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
+
+if (string.IsNullOrEmpty(connectionString))
+{
+    throw new InvalidOperationException("DATABASE_URL environment variable is not set. Please configure your database connection.");
+}
 
 builder.Services.AddDbContext<InvoiceContext>(options =>
     options.UseNpgsql(connectionString));
