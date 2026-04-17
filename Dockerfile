@@ -1,4 +1,4 @@
-# Build stage
+# Build and publish stage
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
@@ -9,19 +9,13 @@ RUN dotnet restore "ThinkBridge.csproj"
 # Copy all source code
 COPY . .
 
-# Build the application
-RUN dotnet build "ThinkBridge.csproj" -c Release -o /app/build
-
-# Publish stage
-FROM mcr.microsoft.com/dotnet/sdk:10.0 AS publish
-WORKDIR /src
-COPY --from=build /app/build .
+# Build and publish the application
 RUN dotnet publish "ThinkBridge.csproj" -c Release -o /app/publish
 
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:10.0
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=build /app/publish .
 
 # Set environment variables
 ENV ASPNETCORE_URLS=http://0.0.0.0:10000
