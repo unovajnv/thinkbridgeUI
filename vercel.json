@@ -2,7 +2,6 @@
   "buildCommand": "dotnet build -c Release && dotnet publish -c Release -o out",
   "installCommand": "dotnet restore",
   "outputDirectory": "out",
-  "framework": "dotnet",
   "env": {
     "ASPNETCORE_ENVIRONMENT": "Production",
     "ASPNETCORE_URLS": "http://0.0.0.0:3000"
