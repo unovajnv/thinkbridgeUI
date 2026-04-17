@@ -1,0 +1,19 @@
+# Docker build ignore file
+.git
+.gitignore
+.vscode
+.vs
+bin
+obj
+*.user
+*.suo
+*.db
+*.sqlite
+*.log
+node_modules
+npm-debug.log
+.DS_Store
+.env
+.env.local
+README.md
+*.md
