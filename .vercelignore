@@ -1,3 +1,7 @@
+# Note: This project is NOT deployed to Vercel
+# Use Render, Railway, or Azure for .NET deployment
+# See RENDER_DEPLOYMENT.md or COMPLETE_DEPLOYMENT_GUIDE.md
+
 # Ignore build artifacts
 bin/
 obj/
@@ -14,3 +18,4 @@ npm-debug.log
 .env.local
 *.db
 *.sqlite
+
